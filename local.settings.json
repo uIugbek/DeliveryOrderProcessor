@@ -2,7 +2,7 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "CosmosDbConnectionString": "",
+    "CosmosDbConnectionString": "AccountEndpoint=https://cloudx-cosmos-db.documents.azure.com:443/;AccountKey=XqY58721ZjH7dE3myP00LJnw82cM7AsFybxhZDqYXKH35PCmp0IKRIVtBKDrJLCxgHTvnsbshnz5BQX48zJY6w==",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet"
   }
 }

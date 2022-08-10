@@ -14,12 +14,12 @@ public static class DeliveryOrderProcessor
 {
     [FunctionName("DeliveryOrderProcessor")]
     public static async Task<IActionResult> RunAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-        [CosmosDB("orders", "order-delivery", Connection = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]
+        HttpRequest req,
+        [CosmosDB("orders", "order-delivery", Connection = "CosmosDbConnectionString")]
+        IAsyncCollector<dynamic> documentsOut,
         ILogger log)
     {
-        log.LogInformation("C# HTTP trigger function processed a request.");
-
         string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
         dynamic data = JsonConvert.DeserializeObject(requestBody, new JsonSerializerSettings
         {
@@ -27,7 +27,7 @@ public static class DeliveryOrderProcessor
         });
 
         await documentsOut.AddAsync(data);
-        
-        return new OkObjectResult($"Success");
+
+        return new OkObjectResult("Success");
     }
 }
