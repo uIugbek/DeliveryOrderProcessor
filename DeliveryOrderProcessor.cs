@@ -14,9 +14,9 @@ public static class DeliveryOrderProcessor
 {
     [FunctionName("DeliveryOrderProcessor")]
     public static async Task<IActionResult> RunAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
         HttpRequest req,
-        [CosmosDB("orders", "order-delivery", Connection = "CosmosDbConnectionString")]
+        [CosmosDB("eshop", "order-delivery", Connection = "CosmosDbConnectionString")]
         IAsyncCollector<dynamic> documentsOut,
         ILogger log)
     {
